@@ -37,6 +37,7 @@ public final class R {
         public static final int composer_buttons_show_hide_button=0x7f060007;
         public static final int composer_buttons_show_hide_button_icon=0x7f060008;
         public static final int composer_buttons_wrapper=0x7f060000;
+        public static final int textView=0x7f060009;
     }
     public static final class layout {
         public static final int main=0x7f030000;

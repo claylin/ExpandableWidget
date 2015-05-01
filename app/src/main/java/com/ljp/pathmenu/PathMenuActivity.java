@@ -1,5 +1,6 @@
 package com.ljp.pathmenu;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +21,6 @@ public class PathMenuActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		MyAnimations.initOffset(PathMenuActivity.this);
 		composerButtonsWrapper = (RelativeLayout) findViewById(R.id.composer_buttons_wrapper);
 		composerButtonsShowHideButton = (RelativeLayout) findViewById(R.id.composer_buttons_show_hide_button);
 		composerButtonsShowHideButtonIcon = (ImageView) findViewById(R.id.composer_buttons_show_hide_button_icon);
@@ -30,11 +30,11 @@ public class PathMenuActivity extends Activity {
 			public void onClick(View v) {
 				if (!areButtonsShowing) {
 					MyAnimations.startAnimationsIn(composerButtonsWrapper, 300);
-					composerButtonsShowHideButtonIcon.startAnimation(MyAnimations.getRotateAnimation(0, -270, 300));
+                    ObjectAnimator.ofFloat(composerButtonsShowHideButtonIcon, "rotation", -270, 300).setDuration(300).start();
 				}
 				else {
 					MyAnimations.startAnimationsOut(composerButtonsWrapper, 300);
-					composerButtonsShowHideButtonIcon.startAnimation(MyAnimations.getRotateAnimation(-270, 0, 300));
+                    ObjectAnimator.ofFloat(composerButtonsShowHideButtonIcon, "rotation", -270, 0).setDuration(300).start();
 				}
 				areButtonsShowing = !areButtonsShowing;
 			}
@@ -47,7 +47,7 @@ public class PathMenuActivity extends Activity {
 			});
 		}
 
-		composerButtonsShowHideButton.startAnimation(MyAnimations.getRotateAnimation(0, 360, 200));
+        ObjectAnimator.ofFloat(composerButtonsShowHideButtonIcon, "rotation", 0, 360).setDuration(200).start();
 
 	}
 

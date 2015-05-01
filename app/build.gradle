@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "com.ljp.pathmenu"
-        minSdkVersion 8
-        targetSdkVersion 8
+        minSdkVersion 18
+        targetSdkVersion 18
     }
 
     buildTypes {
